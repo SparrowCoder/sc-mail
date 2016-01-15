@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	 http://www.springframework.org/schema/aop
+	 http://www.springframework.org/schema/aop/spring-aop-2.5.xsd"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p">
+
+	<!-- SpringMail的配置 -->
+	<!-- <bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="host" value="smtp.qq.com" />
+		<property name="username" value="497721267@qq.com" />
+		<property name="password" value="111111" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.debug">true</prop>
+				<prop key="mail.smtp.timeout">25000</prop>
+				<prop key="mail.smtp.port">25</prop>
+			</props>
+		</property>
+	</bean> -->
+	
+
+
+
+	<!-- SparrowMail的配置 -->
+	<bean id="mailMessage" class="com.sparrowcode.mail.MailMessage">
+		<property name="from">
+			<value>497721267@qq.com</value>
+			<value><![CDATA[拉拉胡<497721267@qq.com>]]></value>
+		</property>
+	</bean>
+	<bean id="mailSender" class="com.sparrowcode.mail.MailSender" scope="singleton">
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="username" value="497721267@qq.com" />
+		<property name="password" value="111111" />
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.debug">true</prop>
+				<prop key="mail.smtp.timeout">25000</prop>
+				<prop key="mail.smtp.host">smtp.qq.com</prop>
+				<prop key="mail.smtp.port">25</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
